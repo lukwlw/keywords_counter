@@ -6,7 +6,10 @@ from keywords.tools.wordcount import WordCounter
 
 
 class KeywordsMainForm:
-    """The project main dialog window"""
+    """The project main dialog window
+
+    To count keywords occurrences on the page, type the URL into URL text box,
+    and push Count button"""
     def __init__(self, parent):
         self._parent = parent
         self._create_widgets()
@@ -16,9 +19,11 @@ class KeywordsMainForm:
         """Prepare dialog widgets"""
         self.content = tk.Frame(self._parent)
 
+        # URL input
         self.lbl_url = tk.Label(self.content, text='URL:')
         self.entry_url = tk.Entry(self.content)
 
+        # Results - text area and controls around
         self.lbl_result = tk.Label(self.content, text='Counted words:')
         self.txt_result = tk.Text(self.content, width=50, height=8)
 
@@ -27,6 +32,7 @@ class KeywordsMainForm:
                                           command=self.txt_result.yview)
         self.txt_result.config(yscrollcommand=self.scroll_result.set)
 
+        # Problems info - text area and controls around
         self.lbl_error = tk.Label(self.content, text='Problems:')
         self.txt_error = tk.Text(self.content, width=50, height=4)
 
@@ -35,6 +41,7 @@ class KeywordsMainForm:
                                          command=self.txt_error.yview)
         self.txt_error.config(yscrollcommand=self.scroll_error.set)
 
+        # Buttons
         self.btn_count = tk.Button(self.content,
                                    text='Count',
                                    width='10',
@@ -44,9 +51,9 @@ class KeywordsMainForm:
                                    width='10',
                                    command=self._parent.quit)
 
-        self._set_grid_positions()
+        self._set_positions_on_grid()
 
-    def _set_grid_positions(self):
+    def _set_positions_on_grid(self):
         """Set widgets on grid"""
         self.content.grid(column=0,
                           row=0,
@@ -102,7 +109,7 @@ class KeywordsMainForm:
 
     def count(self):
         """Open the page given by URL, get keywords and text, and count keywords.
-        Display results"""
+        Display results."""
 
         # load the page given by url
         url_to_test = self.entry_url.get()
