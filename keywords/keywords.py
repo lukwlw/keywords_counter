@@ -1,6 +1,6 @@
 import tkinter as tk
 
-from keywords.forms import KeywordsMainForm
+from forms import KeywordsMainForm
 
 
 root = tk.Tk()
