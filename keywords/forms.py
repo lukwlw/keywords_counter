@@ -2,8 +2,7 @@ import tkinter as tk
 
 from loader import URLLoader
 from wordcount import WordCounter
-
-from keywords.extractor import ContentExtractor
+from extractor import ContentExtractor
 
 
 class KeywordsMainForm:
