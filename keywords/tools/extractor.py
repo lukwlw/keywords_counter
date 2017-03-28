@@ -11,11 +11,9 @@ class ContentExtractor:
     def __init__(self, page):
         self._content = None
         self._page = b''
-        if isinstance(page, bytes):
-            self._page = page
+
+        self.page = page
         self.init_parser()
-        # TODO
-        # set page by property ?
 
     def init_parser(self):
         self._content = BeautifulSoup(self._page, 'html.parser')
@@ -43,3 +41,15 @@ class ContentExtractor:
             if self._content.body:
                 body_text = self._content.body.get_text()
         return body_text
+
+    @property
+    def page(self):
+        return self._page
+
+    @page.setter
+    def page(self, page):
+        """Set the page to parse"""
+        if isinstance(page, bytes):
+            self._page = page
+        else:
+            self._page = b''
