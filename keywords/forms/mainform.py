@@ -100,11 +100,11 @@ class KeywordsMainForm:
         """'on click' command for Count button
 
         Clear current results and try to count keywords on page"""
-        self.clear_results()
+        self.clear()
         self.count()
 
     def _click_clear(self):
-        self.clear_results()
+        self.clear()
 
     def print_problem_info(self, error_info):
         """Print info in problems text field"""
@@ -114,7 +114,7 @@ class KeywordsMainForm:
         """Print info in results text field"""
         self.txt_result.insert(tk.INSERT, '{0}\n'.format(result_info))
 
-    def clear_results(self):
+    def clear(self):
         """Clear fields"""
         self.txt_result.delete(1.0, tk.END)
         self.txt_error.delete(1.0, tk.END)
