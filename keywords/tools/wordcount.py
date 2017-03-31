@@ -24,9 +24,6 @@ class WordCounter:
             for s in statistics:
                 statistics[s] = self._text.lower().count(s.lower())
 
-        # TODO:
-        # full words ?
-
         return statistics
 
     @property

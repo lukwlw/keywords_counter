@@ -26,9 +26,6 @@ class URLLoader:
         if len(url_parsed.netloc) == 0:
             self._error_info = 'URLLoader: URL is not valid'
             return False
-        # TODO
-        # More tests?
-        # add http if scheme is empty ?
 
         return True
 

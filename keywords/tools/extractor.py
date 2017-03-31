@@ -17,9 +17,6 @@ class ContentExtractor:
 
     def init_parser(self):
         self._content = BeautifulSoup(self._page, 'html.parser')
-        # TODO
-        # try/except ?
-        # suppressing wornings from bs ?
 
     def get_keywords(self):
         keywords = None
