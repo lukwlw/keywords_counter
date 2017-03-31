@@ -46,6 +46,10 @@ class KeywordsMainForm:
                                    text='Count',
                                    width='10',
                                    command=self._click_count)
+        self.btn_clear = tk.Button(self.content,
+                                   text='Clear',
+                                   width='10',
+                                   command=self._click_clear)
         self.btn_close = tk.Button(self.content,
                                    text='Close',
                                    width='10',
@@ -82,7 +86,8 @@ class KeywordsMainForm:
                             sticky=(tk.N, tk.S, tk.E, tk.W))
         self.scroll_error.grid(column=3, row=4, sticky=(tk.N, tk.S, tk.W))
 
-        self.btn_count.grid(column=1, row=5, sticky=tk.E, pady=(10, 0), padx=5)
+        self.btn_count.grid(column=0, row=5, sticky=tk.W, pady=(10, 0))
+        self.btn_clear.grid(column=1, row=5, sticky=tk.E, pady=(10, 0), padx=5)
         self.btn_close.grid(column=2, row=5, columnspan=2, pady=(10, 0))
 
         self._parent.columnconfigure(0, weight=1)
@@ -98,6 +103,10 @@ class KeywordsMainForm:
         self.txt_result.delete(1.0, tk.END)
         self.txt_error.delete(1.0, tk.END)
         self.count()
+
+    def _click_clear(self):
+        self.txt_result.delete(1.0, tk.END)
+        self.txt_error.delete(1.0, tk.END)
 
     def print_problem_info(self, error_info):
         """Print info in problems text field"""
