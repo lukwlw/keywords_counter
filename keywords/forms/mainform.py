@@ -104,6 +104,9 @@ class KeywordsMainForm:
         self.count()
 
     def _click_clear(self):
+        """'on click' command for Clear button
+
+        Clear current results"""
         self.clear()
 
     def print_problem_info(self, error_info):
